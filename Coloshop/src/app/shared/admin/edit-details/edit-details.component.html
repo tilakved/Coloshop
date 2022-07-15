@@ -1,0 +1,104 @@
+<app-admin-header></app-admin-header>
+
+<div class="container">
+  <div class="text-center">
+    <h2>Editing Details of {{data.product_name}}</h2>
+  </div>
+  <div class="myform">
+    <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)" autocomplete="on">
+      <div class="question">
+        <label for="id">Your <b>Product Id</b> is: </label>
+        <input type="text" id="id" name="id" placeholder="Product Id" disabled value="{{data.id}}">
+      </div>
+
+      <div class="question">
+        <div>Do you want to add as <b>new</b> product tag:</div>
+        <div class="flex">
+          <input type="radio" id="yes_new" name="new" value=true (click)="onNewChange($event.target)">
+          <label for="yes_new">&nbsp;Yes</label><br>
+          <input type="radio" id="no_new" name="new" value=false (click)="onNewChange($event.target)" checked>
+          <label for="no_new">&nbsp;No</label><br>
+        </div>
+      </div>
+
+      <div class="question">
+        <label for="discount">Is there any <b>discount</b> on this product?: </label>
+        <input type="text" id="discount" name="discount" placeholder="sale / amount" formControlName="discount">
+      </div>
+
+      <div class="question">
+        <div>Do you want to add as <b>favourite</b> product tag:</div>
+        <div class="flex">
+          <input type="radio" name="fav" id="yes_fav" value="true" (click)="onFavChange($event.target)">
+          <label for="yes_fav">&nbsp;Yes</label><br>
+          <input type="radio" name="fav" id="no_fav" value=false (click)="onFavChange($event.target)" checked>
+          <label for="no_fav">&nbsp;No</label><br>
+        </div>
+      </div>
+
+      <div class="question flex justify-between">
+        <div>
+          <label for="imagePath">Enter product Image: </label>
+          <input type="text" id="imagePath" name="imagePath" placeholder="Image Path" disabled
+                 value="{{data.image_path}}">
+        </div>
+        <img class="img-box-shadow" src="{{data.image_path}}">
+      </div>
+
+      <div class="question">
+        <label for="product_name">Enter Name of the Product: </label>
+        <input type="text" id="product_name" name="product_name" placeholder="Product Name"
+               formControlName="product_name">
+      </div>
+
+      <div class="question">
+        <label for="sale_price">Enter <b>sale(old) price</b> of the Product: </label>
+        <input type="number" id="sale_price" name="sale_price" placeholder="Sale Price"
+               formControlName="sale_price">
+      </div>
+
+      <div class="question">
+        <label for="actual_price">Enter <b>Actual price</b> of the Product: </label>
+        <input type="number" id="actual_price" name="actual_price" placeholder="Actual Price"
+               formControlName="actual_price">
+      </div>
+
+      <div class="question">
+        <div class="mr-10">What is <b>Category</b> of the Product:</div>
+<!--        <input type="text" id="category" name="category" placeholder="Category"-->
+<!--               formControlName="category">-->
+        <div>
+          <!--          <input type="checkbox" id="category_men" name="category1" value="men"-->
+          <!--                 [checked]="cat_arr.includes('men')"-->
+          <!--                 (click)="onCatChange($event.target)" [(ngModel)]="categoryOption.checked">-->
+          <!--            <div *ngFor="let option of categoryOption; let i = index">-->
+          <!--              <label>-->
+          <!--                <input type="checkbox"-->
+          <!--                       name="options"-->
+          <!--                       value="{{option}}"-->
+          <!--                       [checked]="categoryOption.indexOf(option) >= 0"-->
+          <!--                       (change)="updateCheckedOptions(option, $event)"/>-->
+          <!--                {{option}}-->
+          <!--              </label>-->
+          <!--            </div>-->
+          <!--          <br>-->
+          <input type="checkbox" id="category_men" name="category1" value="men"
+                 [checked]="cat_arr.includes('men')"
+                 (click)="onCatChange($event.target)">
+          <label for="category_men">&nbsp; men</label><br>
+          <input type="checkbox" id="category_women" name="category2" value="women"
+                 [checked]="cat_arr.includes('women')"
+                 (click)="onCatChange($event.target)">
+          <label for="category_women">&nbsp; women</label><br>
+          <input type="checkbox" id="category_accessories" name="category3" value="accessories"
+                 [checked]="cat_arr.includes('accessories')"
+                 (click)="onCatChange($event.target)">
+          <label for="category_accessories">&nbsp; accessories</label><br>
+        </div>
+      </div>
+
+      <input class="button-css" type="submit" value="Save">
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<app-admin-header></app-admin-header>
+
+<!-- New Arrivals # - single.html on product name-->
+<div class="new_arrivals">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <div class="section_title new_arrivals_title">
+          <h2>Product Details</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+          <!-- Products -->
+          <div *ngFor="let p of posts; let index=index">
+            <div class="product-item men">
+              <div class="product discount product_filter">
+                <div class="product_image">
+                  <img src="{{p.image_path}}" alt="">
+                </div>
+                <div *ngIf="p.new_product == true"
+                     class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
+                  <span>new</span></div>
+                <!--                <div class="favorite " [ngClass]="{'favorite_left': p.discount != ''}"></div>-->
+                <div *ngIf="p.discount != ''"
+                     class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                  <span *ngIf="p.discount == 'sale'">{{p.discount}}</span>
+                  <span *ngIf="p.discount != 'sale'">-${{p.discount}}</span>
+                </div>
+                <div class="product_info">
+                  <h6 class="product_name">{{p.product_name}}</h6>
+                  <div class="product_price">${{p.actual_price}}
+                    <span *ngIf="p.sale_price != ''">${{p.sale_price}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex admin_buttons">
+                <div class="red_button add_to_cart_button edit" (click)="editDetails(p)"><a>Edit Details</a></div>
+                <div class="red_button add_to_cart_button" (click)="deleteRow(p, index)"><a>Delete</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-item position-relative add">
+            <button class="red_button position-absolute" (click)="addRow()">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

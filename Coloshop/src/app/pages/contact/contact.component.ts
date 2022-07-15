@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MapsAPILoader} from '@agm/core';
 
 @Component({
   selector: 'app-contact',

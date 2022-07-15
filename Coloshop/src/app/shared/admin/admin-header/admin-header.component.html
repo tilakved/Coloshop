@@ -1,21 +1,18 @@
-<!-- Top Navigation -->
-<app-topstrip></app-topstrip>
-<!-- Main Navigation -->
 <div class="main_nav_container">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-right">
         <div class="logo_container">
-          <a href="#">colo<span>shop</span></a>
+          <a href="#">colo<span>shop</span></a><h6>AdminPanel</h6>
         </div>
         <nav class="navbar">
           <ul class="navbar_menu">
-            <li><a href="#">home</a></li>
-            <li><a href="#">shop</a></li>
-            <li><a href="#">promotion</a></li>
-            <li><a href="#">pages</a></li>
-            <li><a href="#">blog</a></li>
-            <li><a routerLink="pages/Contact">contact</a></li>
+            <li><a (click)="openDashboard()">Dashboard</a></li>
+            <li><a >Turnover</a></li>
+            <li><a >Promotion</a></li>
+            <li><a >blog</a></li>
+            <li><a >Details</a></li>
+            <li><a class="logout" (click)="logout()">LogOut</a></li>
           </ul>
           <ul class="navbar_user">
             <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>

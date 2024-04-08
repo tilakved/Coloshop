@@ -1,29 +1,19 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../core/services/helper/http/http.service";
 import {OwlOptions} from "ngx-owl-carousel-o";
-import {transition, trigger, useAnimation} from "@angular/animations";
-import {fadeAnimation} from "../../core/animations/fade.animation";
+import {animate, query, style, transition, trigger, useAnimation} from "@angular/animations";
+import {zoomIn} from 'ng-animate';
 
 @Component({
   selector: 'app-home',
-  // animations: [
-  //   trigger('openClose', [
-  //     transition('open => closed', [
-  //       useAnimation(fadeAnimation,
-  //         {
-  //           params: {
-  //             height: 0,
-  //             opacity: 1,
-  //             backgroundColor: 'red',
-  //             time: '1s'
-  //           }
-  //         })
-  //     ])
-  //   ])
-  // ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('myAnimation', [transition('* <=> *', useAnimation(zoomIn, {
+      params: {timing: 0.5, delay: 0}
+    }))])
 
+  ]
 
 })
 export class HomeComponent implements OnInit {
@@ -79,13 +69,15 @@ export class HomeComponent implements OnInit {
   }
 
   checkCategory(cat: string) {
+    this.posts = []
     if (cat == 'all') {
       this.posts = this.products
-      this.isSelected = cat
+      // this.isSelected = cat
     } else if (this.products.filter((i: any) => i.category.includes(cat))) {
       this.posts = this.products.filter((i: any) => i.category.includes(cat))
-      this.isSelected = cat
     }
+    this.isSelected = cat
+
   }
 
 }

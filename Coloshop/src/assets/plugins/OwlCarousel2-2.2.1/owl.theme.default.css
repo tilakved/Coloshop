@@ -7,10 +7,11 @@
  * 	Default theme - Owl Carousel CSS File
  */
 
-.owl-nav{
+.owl-nav {
   display: flex;
   justify-content: space-between;
 }
+
 .owl-theme .owl-nav {
   text-align: center;
   -webkit-tap-highlight-color: transparent;

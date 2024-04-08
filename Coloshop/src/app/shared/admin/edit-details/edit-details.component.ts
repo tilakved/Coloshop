@@ -3,7 +3,6 @@ import {EditorService} from "../../../core/services/helper/editor/editor.service
 import {FormControl, FormGroup} from "@angular/forms";
 import {HttpService} from "../../../core/services/helper/http/http.service";
 import {Router} from "@angular/router";
-import {fakeAsync} from "@angular/core/testing";
 
 interface Product {
 }

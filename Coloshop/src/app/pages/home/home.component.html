@@ -80,8 +80,8 @@
       <div class="col">
         <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
           <!-- Products -->
-          <div *ngFor="let p of posts">
-            <div class="product-item men">
+          <div *ngFor="let p of posts" >
+            <div class="product-item men" [@myAnimation]>
               <div class="product discount product_filter">
                 <div class="product_image">
                   <img src="{{p.image_path}}" alt="">
